@@ -92,9 +92,17 @@ function getMissingNum() {
   
   const missingNum = initialArraySum - finalArraySum;
   console.log(`The missing number is: ${missingNum}`);
+  displayMissingContainer(missingNum);
 }
 
-// ALERT MISSING NUMBER
+/* ALERT MISSING NUMBER */
+function displayMissingContainer(missingNum) {
+  div_missingContainer.style.display = 'flex';
+
+  const resultP = document.createElement('p');
+  resultP.innerText = `The missing number was: ${missingNum}`;
+  div_missingContainer.appendChild(resultP);  
+}
 
 
 // DISPLAY MISSING NUMBER
