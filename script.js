@@ -93,7 +93,7 @@ function getMissingNum() {
   const missingNum = initialArraySum - finalArraySum;
   console.log(`The missing number is: ${missingNum}`);
   displayMissingContainer(missingNum);
-  button_continue.addEventListener('click', getMissingNum);
+  button_continue.removeEventListener('click', getMissingNum);
 }
 
 /* ALERT MISSING NUMBER */
