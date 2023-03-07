@@ -9,3 +9,22 @@ const div_explainContainer = document.querySelector('.explain-container.wrap');
 const button_continue = document.querySelector('#continue');
 const div_missingContainer = document.querySelector('.missing-container.wrap');
 
+/* MAKE ARRAY - make array of user-inputed length */
+
+/* APPEND ARRAY - append and display in array container */
+
+/* REMOVE NUMBER - remove a random element - remove from the displayed array */
+
+
+// Now use logic to identify which number was removed.
+// The constraint is you are only given the edited array,
+// which has a number missing.
+
+
+// FIND MISSING NUMBER
+
+
+// ALERT MISSING NUMBER
+
+
+// DISPLAY MISSING NUMBER
