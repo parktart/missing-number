@@ -9,7 +9,25 @@ const div_explainContainer = document.querySelector('.explain-container.wrap');
 const button_continue = document.querySelector('#continue');
 const div_missingContainer = document.querySelector('.missing-container.wrap');
 
+let theArray = [];
+let arrayLength;
+
 /* MAKE ARRAY - make array of user-inputed length */
+button_makeArray.addEventListener('click', checkInput);
+
+function checkInput() {
+  arrayLength = +input_arrayLength.value;
+  if (arrayLength < 1 || arrayLength > 100) return;
+  makeArray(arrayLength);
+}
+
+function makeArray(arrayLength) {
+  button_makeArray.removeEventListener('click', checkInput);
+  for (let i = 1; i <= arrayLength; i++) {
+    theArray.push(i);
+  };
+  console.log(`The initial array is: ${theArray}`);
+}
 
 /* APPEND ARRAY - append and display in array container */
 
