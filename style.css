@@ -116,6 +116,12 @@ input[type=number] {
   /* display: none; */
 }
 
+.explain-container.wrap {
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  /* display: none; */
+}
 
 /*
 
