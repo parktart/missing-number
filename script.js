@@ -75,9 +75,24 @@ function displayExplainContainer() {
 // The constraint is you are only given the edited array,
 // which has a number missing.
 
+button_continue.addEventListener('click', getMissingNum);
 
-// FIND MISSING NUMBER
-
+/* FIND MISSING NUMBER */
+function getMissingNum() {
+  const finalArrayLength = theArray.length;
+  const finalArraySum = theArray.reduce((accumulator, element_i) => accumulator + element_i, 0);
+  // the return value of the callback function is passed back into the callback function's param1
+  // along with the next element in the array
+  // initial value passed to param1 is 0
+  
+  const initialArrayLength = finalArrayLength + 1;
+  const initialArraySum = initialArrayLength * (initialArrayLength + 1) / 2;
+  // the sum of every integer up to a specified number is called the "sum of natural numbers"
+  // and is equal to n(n+1)/2
+  
+  const missingNum = initialArraySum - finalArraySum;
+  console.log(`The missing number is: ${missingNum}`);
+}
 
 // ALERT MISSING NUMBER
 
