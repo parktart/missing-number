@@ -101,8 +101,15 @@ function displayMissingContainer(missingNum) {
 
   const resultP = document.createElement('p');
   resultP.innerText = `The missing number was: ${missingNum}`;
-  div_missingContainer.appendChild(resultP);  
+  div_missingContainer.appendChild(resultP);
+  
+  // displayMissingNum(missingNum);
+  setTimeout(displayMissingNum, 1000, missingNum)
 }
 
-
-// DISPLAY MISSING NUMBER
+/* DISPLAY MISSING NUMBER */
+function displayMissingNum(missingNum) {
+  const div_numToDisplay = document.querySelector(`.array-container.wrap div:nth-child(${missingNum})`);
+  div_numToDisplay.style.display = 'block';
+  div_numToDisplay.style.color = 'red';
+}

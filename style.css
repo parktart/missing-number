@@ -117,14 +117,14 @@ input[type=number] {
 
 .random-button.wrap {
   gap: 10px;
-  /* display: none; */
+  display: none;
 }
 
 .explain-container.wrap {
   flex-direction: column;
   gap: 20px;
   text-align: center;
-  /* display: none; */
+  display: none;
 }
 
 .footer {
