@@ -36,6 +36,9 @@ function appendArray(theArray) {
   for (let i = 0; i < theArray.length; i++) {
     doSetTimeout(i, theArray, delayInterval);
   }
+  const delayTotal = delayInterval * (theArray.length - 1);
+  // delay next step until array has fully appeared + 500ms
+  setTimeout(displayRandomContainer, delayTotal + 500);
 }
 
 function doSetTimeout(i, theArray, delayInterval) {
@@ -46,8 +49,27 @@ function doSetTimeout(i, theArray, delayInterval) {
   }, i * delayInterval);
 }
 
-/* REMOVE NUMBER - remove a random element - remove from the displayed array */
+/* REMOVE NUMBER */
+function displayRandomContainer() {
+  div_randomContainer.style.display = 'flex';
+}
 
+button_go.addEventListener('click', removeNumber);
+
+function removeNumber() {
+  const randomNum = Math.floor(Math.random()*theArray.length) + 1;
+  const indexValue = randomNum - 1;
+  theArray.splice(indexValue, 1);
+  const div_numToRemove = document.querySelector(`.array-container.wrap div:nth-child(${randomNum})`);
+  div_numToRemove.style.display = 'none';
+  button_go.removeEventListener('click', removeNumber);
+  setTimeout(displayExplainContainer, 500); // delay by 500ms
+  console.log(`The final array is: ${theArray}`);
+}
+
+function displayExplainContainer() {
+  div_explainContainer.style.display = 'flex';
+}
 
 // Now use logic to identify which number was removed.
 // The constraint is you are only given the edited array,
