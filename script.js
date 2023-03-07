@@ -12,7 +12,7 @@ const div_missingContainer = document.querySelector('.missing-container.wrap');
 let theArray = [];
 let arrayLength;
 
-/* MAKE ARRAY - make array of user-inputed length */
+/* MAKE ARRAY */
 button_makeArray.addEventListener('click', checkInput);
 
 function checkInput() {
@@ -27,9 +27,24 @@ function makeArray(arrayLength) {
     theArray.push(i);
   };
   console.log(`The initial array is: ${theArray}`);
+  appendArray(theArray);
 }
 
-/* APPEND ARRAY - append and display in array container */
+/* APPEND ARRAY */
+function appendArray(theArray) {
+  const delayInterval = 50; // stagger each append by 50 milliseconds
+  for (let i = 0; i < theArray.length; i++) {
+    doSetTimeout(i, theArray, delayInterval);
+  }
+}
+
+function doSetTimeout(i, theArray, delayInterval) {
+  setTimeout(function() {
+    const arrayDiv = document.createElement('div');
+    arrayDiv.innerText = theArray[i];
+    div_arrayContainer.appendChild(arrayDiv);
+  }, i * delayInterval);
+}
 
 /* REMOVE NUMBER - remove a random element - remove from the displayed array */
 
