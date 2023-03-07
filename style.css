@@ -101,6 +101,15 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.array-container.wrap {
+  flex-wrap: wrap;
+  gap: 16px;
+  color: white;
+}
+
+.array-container.wrap div {
+  width: 22px;
+}
 
 /*
 
