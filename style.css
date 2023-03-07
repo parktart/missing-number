@@ -61,6 +61,29 @@ h1 {
   font-weight: bold;
 }
 
+.array-length.wrap {
+  gap: 10px;
+}
+
+.array-length input {
+  background-color: black;
+  border-radius: 8px;
+  padding: 6px 8px;
+}
+
+/* hide arrows in number input - Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* hide arrows in number input - Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 /*
 
 pixels = rem = User Agent Stylesheet (chrome)
