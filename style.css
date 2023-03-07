@@ -111,6 +111,12 @@ input[type=number] {
   width: 22px;
 }
 
+.random-button.wrap {
+  gap: 10px;
+  /* display: none; */
+}
+
+
 /*
 
 pixels = rem = User Agent Stylesheet (chrome)
