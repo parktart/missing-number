@@ -131,6 +131,14 @@ input[type=number] {
   gap: 20px;
   text-align: center;
   display: none;
+  height: 220px;
+  transition: height 0.5s ease;
+}
+
+.explain-container.wrap.zero-height {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
 }
 
 .footer {

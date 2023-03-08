@@ -75,7 +75,12 @@ function displayExplainContainer() {
 // The constraint is you are only given the edited array,
 // which has a number missing.
 
-button_continue.addEventListener('click', getMissingNum);
+button_continue.addEventListener('click', hideExplainContainer);
+
+function hideExplainContainer() {
+  div_explainContainer.classList.add('zero-height');
+  setTimeout(getMissingNum, 1000); // delay by 1s
+}
 
 /* FIND MISSING NUMBER */
 function getMissingNum() {
