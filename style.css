@@ -149,8 +149,17 @@ input[type=number] {
   gap: 20px;
   text-align: center;
   /* display: none; */
-  transition: height 0.5s ease;
+  transition: height 1s ease;
   font-size: 1rem;
+}
+
+.calcs-container.wrap > * {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.calcs-container.wrap > .full-opac {
+  opacity: 1;
 }
 
 .calcs-container.wrap.full-height {

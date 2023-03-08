@@ -63,8 +63,8 @@ function removeNumber() {
   theArray.splice(indexValue, 1);
   const div_numToRemove = document.querySelector(`.array-container.wrap div:nth-child(${randomNum})`);
   div_numToRemove.style.display = 'none';
-  setTimeout(() => div_randomContainer.style.display = 'none', 250);
-  setTimeout(displayExplainContainer, 500); // delay by 500ms
+  setTimeout(() => div_randomContainer.style.display = 'none', 500);
+  setTimeout(displayExplainContainer, 1000);
   console.log(`The final array is: ${theArray}`);
 }
 
@@ -112,38 +112,47 @@ function displayCalcs(finalArrayLength, finalArraySum, initialArrayLength, initi
   const p1 = document.createElement('p');
   p1.innerText = `The above array contains ${finalArrayLength} elements.`;
   setTimeout(() => div_calcsContainer.appendChild(p1), accum);
+  setTimeout(() => p1.classList.add('full-opac'), accum + 50);
   
   const p2 = document.createElement('p');
   p2.innerText = `The sum of those elements is ${finalArraySum}.`;
   setTimeout(() => div_calcsContainer.appendChild(p2), accum += delayIntrvl);
+  setTimeout(() => p2.classList.add('full-opac'), accum + 50);
 
   const p3 = document.createElement('p');
   p3.innerText = `The original array contained ${finalArrayLength} + 1 = ${finalArrayLength+1} elements.`;
   setTimeout(() => div_calcsContainer.appendChild(p3), accum += delayIntrvl);
+  setTimeout(() => p3.classList.add('full-opac'), accum + 50);
 
   const p4 = document.createElement('p');
   p4.innerText = `The sum of all elements in the original array is equal to the "sum of natural numbers".`;
   setTimeout(() => div_calcsContainer.appendChild(p4), accum += delayIntrvl);
+  setTimeout(() => p4.classList.add('full-opac'), accum + 50);
 
   const p5 = document.createElement('p');
   p5.innerText = `Which is the sum of every positive integer up to and including a specified number.`;
   setTimeout(() => div_calcsContainer.appendChild(p5), accum += delayIntrvl);
+  setTimeout(() => p5.classList.add('full-opac'), accum + 50);
 
   const p6 = document.createElement('p');
   p6.innerText = `n(n+1)/2`;
   setTimeout(() => div_calcsContainer.appendChild(p6), accum += delayIntrvl);
+  setTimeout(() => p6.classList.add('full-opac'), accum + 50);
 
   const p7 = document.createElement('p');
   p7.innerText = `The sum of all elements in the original array was therefore ${initialArraySum}.`;
   setTimeout(() => div_calcsContainer.appendChild(p7), accum += delayIntrvl);
+  setTimeout(() => p7.classList.add('full-opac'), accum + 50);
 
   const p8 = document.createElement('p');
   p8.innerText = `The difference = ${initialArraySum} - ${finalArraySum} = ${initialArraySum - finalArraySum}.`;
   setTimeout(() => div_calcsContainer.appendChild(p8), accum += delayIntrvl);
+  setTimeout(() => p8.classList.add('full-opac'), accum + 50);
 
   const button_continue2 = document.createElement('button');
   button_continue2.innerText = `CONTINUE`;
   setTimeout(() => div_calcsContainer.appendChild(button_continue2), accum += delayIntrvl);
+  setTimeout(() => button_continue2.classList.add('full-opac'), accum + 50);
   button_continue2.addEventListener('click', hideCalcsContainer);
 }
 
@@ -161,7 +170,7 @@ function displayMissingContainer(missingNum) {
   resultP.innerText = `The missing number was: ${missingNum}`;
   div_missingContainer.appendChild(resultP);
   
-  setTimeout(displayMissingNum, 1000, missingNum)
+  setTimeout(displayMissingNum, 1200, missingNum)
 }
 
 /* DISPLAY MISSING NUMBER */
