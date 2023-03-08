@@ -7,6 +7,7 @@ const div_randomContainer = document.querySelector('.random-button.wrap');
 const button_go = document.querySelector('.random-button button');
 const div_explainContainer = document.querySelector('.explain-container.wrap');
 const button_continue = document.querySelector('#continue');
+const div_calcsContainer = document.querySelector('.calcs-container.wrap');
 const div_missingContainer = document.querySelector('.missing-container.wrap');
 
 let theArray = [];
@@ -62,7 +63,7 @@ function removeNumber() {
   theArray.splice(indexValue, 1);
   const div_numToRemove = document.querySelector(`.array-container.wrap div:nth-child(${randomNum})`);
   div_numToRemove.style.display = 'none';
-  button_go.removeEventListener('click', removeNumber);
+  setTimeout(() => div_randomContainer.style.display = 'none', 250);
   setTimeout(displayExplainContainer, 500); // delay by 500ms
   console.log(`The final array is: ${theArray}`);
 }
@@ -78,11 +79,14 @@ function displayExplainContainer() {
 button_continue.addEventListener('click', hideExplainContainer);
 
 function hideExplainContainer() {
-  div_explainContainer.classList.add('zero-height');
+  div_explainContainer.classList.add('full-height');
+  setTimeout(() => div_explainContainer.classList.add('zero-height'), 1);
   setTimeout(getMissingNum, 1000); // delay by 1s
 }
 
 /* FIND MISSING NUMBER */
+let missingNum;
+
 function getMissingNum() {
   const finalArrayLength = theArray.length;
   const finalArraySum = theArray.reduce((accumulator, element_i) => accumulator + element_i, 0);
@@ -95,10 +99,58 @@ function getMissingNum() {
   // the sum of every integer up to a specified number is called the "sum of natural numbers"
   // and is equal to n(n+1)/2
   
-  const missingNum = initialArraySum - finalArraySum;
+  missingNum = initialArraySum - finalArraySum;
   console.log(`The missing number is: ${missingNum}`);
-  displayMissingContainer(missingNum);
-  button_continue.removeEventListener('click', getMissingNum);
+  displayCalcs(finalArrayLength, finalArraySum, initialArrayLength, initialArraySum, missingNum);
+}
+
+function displayCalcs(finalArrayLength, finalArraySum, initialArrayLength, initialArraySum, missingNum) {
+
+  let accum = 0;
+  let delayIntrvl = 2000; // milliseconds
+
+  const p1 = document.createElement('p');
+  p1.innerText = `The above array contains ${finalArrayLength} elements.`;
+  setTimeout(() => div_calcsContainer.appendChild(p1), accum);
+  
+  const p2 = document.createElement('p');
+  p2.innerText = `The sum of those elements is ${finalArraySum}.`;
+  setTimeout(() => div_calcsContainer.appendChild(p2), accum += delayIntrvl);
+
+  const p3 = document.createElement('p');
+  p3.innerText = `The original array contained ${finalArrayLength} + 1 = ${finalArrayLength+1} elements.`;
+  setTimeout(() => div_calcsContainer.appendChild(p3), accum += delayIntrvl);
+
+  const p4 = document.createElement('p');
+  p4.innerText = `The sum of all elements in the original array is equal to the "sum of natural numbers".`;
+  setTimeout(() => div_calcsContainer.appendChild(p4), accum += delayIntrvl);
+
+  const p5 = document.createElement('p');
+  p5.innerText = `Which is the sum of every positive integer up to and including a specified number.`;
+  setTimeout(() => div_calcsContainer.appendChild(p5), accum += delayIntrvl);
+
+  const p6 = document.createElement('p');
+  p6.innerText = `n(n+1)/2`;
+  setTimeout(() => div_calcsContainer.appendChild(p6), accum += delayIntrvl);
+
+  const p7 = document.createElement('p');
+  p7.innerText = `The sum of all elements in the original array was therefore ${initialArraySum}.`;
+  setTimeout(() => div_calcsContainer.appendChild(p7), accum += delayIntrvl);
+
+  const p8 = document.createElement('p');
+  p8.innerText = `The difference = ${initialArraySum} - ${finalArraySum} = ${initialArraySum - finalArraySum}.`;
+  setTimeout(() => div_calcsContainer.appendChild(p8), accum += delayIntrvl);
+
+  const button_continue2 = document.createElement('button');
+  button_continue2.innerText = `CONTINUE`;
+  setTimeout(() => div_calcsContainer.appendChild(button_continue2), accum += delayIntrvl);
+  button_continue2.addEventListener('click', hideCalcsContainer);
+}
+
+function hideCalcsContainer() {
+  div_calcsContainer.classList.add('full-height');
+  setTimeout(() => div_calcsContainer.classList.add('zero-height'), 1);
+  setTimeout(displayMissingContainer, 1000, missingNum); // delay by 1s
 }
 
 /* ALERT MISSING NUMBER */
