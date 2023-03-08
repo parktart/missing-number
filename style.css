@@ -14,6 +14,11 @@ html {
   display: flex;     /* body fills the viewport */
 }
 
+html {
+  min-height: fill-available; /* body fills the viewport */
+  min-height: -webkit-fill-available;
+}
+
 body {
   font-family: 'Courier New', Courier, monospace;
   color: lightgreen;
